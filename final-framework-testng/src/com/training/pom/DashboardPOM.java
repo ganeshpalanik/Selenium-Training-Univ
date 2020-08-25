@@ -31,8 +31,11 @@ public class DashboardPOM {
 	
 	//List<WebElement> elements = driver.findElements(By.xpath("//*[@id='menu-catalog']/ul/li)"));
 	
-	@FindAll(@FindBy(xpath = "//*[@id='menu-catalog']/ul/li)"))
+	@FindAll(@FindBy(xpath = "//*[@id='menu-catalog']/ul/li"))
 	List<WebElement> elements;
+	
+	@FindBy(xpath = "//*[@id='menu-catalog']/ul/li[1]")
+	private WebElement category;
 	
 	
 	public void mouseovercatagory() {
@@ -44,16 +47,18 @@ public class DashboardPOM {
 	
 	public void display()
 	{
-		action = new Actions(this.driver);
-	
-		for (i=0; i<elements.size();i++)
+		for (int i=0;i<elements.size();i++)
 		{
-			
-			action.moveToElement(this.elements.get(i)).perform();
-			
-			
-	      System.out.println("CATALOG ITEMS:" + elements.get(i).getAttribute("value"));
-	    }
+		
+			System.out.println(elements.get(i).getText());
+		
+		}
+		
+		
+	}
 	
+	public void category()
+	{
+		category.click();
 	}
 }

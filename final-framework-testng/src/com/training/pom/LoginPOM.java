@@ -17,7 +17,7 @@ public class LoginPOM {
 	}
 	
 	@FindBy(id="login")
-	private WebElement userName; 
+	private WebElement userName;  
 	
 	@FindBy(id="password")
 	private WebElement password;

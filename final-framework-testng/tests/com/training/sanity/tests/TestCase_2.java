@@ -18,6 +18,7 @@ import com.training.pom.AdminLoginPOM;
 import com.training.pom.LoginCustomerPOM;
 import com.training.pom.LoginPOM;
 import com.training.pom.DashboardPOM;
+import com.training.pom.CategoriesPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
@@ -27,7 +28,7 @@ public class TestCase_2 {
 	private String AdminURL;
 	private AdminLoginPOM AdminLoginPOM;
 	private DashboardPOM DashboardPOM;
-	
+	private CategoriesPOM CategoriesPOM;
 	private static Properties properties;
 	private ScreenShot screenShot;
 	
@@ -81,15 +82,37 @@ public class TestCase_2 {
 		
 		Assert.assertEquals("Dashboard", Dash);
 		
+		// *** 3rd Test Case
+		
 		DashboardPOM = new DashboardPOM(driver);
 		
 		DashboardPOM.mouseovercatagory();
 		
 		Thread.sleep(2000);
 		
+		
 		DashboardPOM.display();
 		
+		//DashboardPOM.mouseovercatagory();
 		
+		DashboardPOM.category();
+		
+		
+		CategoriesPOM = new CategoriesPOM(driver);
+		
+		Assert.assertEquals("Category Name", CategoriesPOM.cname());
+		
+		System.out.println(CategoriesPOM.cname());
+		
+		Assert.assertEquals("Sort Order", CategoriesPOM.sort());
+		
+		System.out.println(CategoriesPOM.sort());
+		
+		Assert.assertEquals("Action", CategoriesPOM.Action());
+		
+		System.out.println(CategoriesPOM.Action());
+		
+		System.out.println("ALL TEST PASSED");
 		
 		
 	}

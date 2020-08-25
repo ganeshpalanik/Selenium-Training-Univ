@@ -42,6 +42,7 @@ public class AdminLoginPOM {
 	
 	public void clickLogin() {
 		this.Login.click(); 
+		
 	}
 	
 	public String Read()

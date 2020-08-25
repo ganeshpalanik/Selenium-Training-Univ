@@ -31,7 +31,7 @@ public class LoginTests {
 	public static void setUpBeforeClass() throws IOException {
 		properties = new Properties();
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
-		properties.load(inStream);
+		properties.load(inStream); 
 	}
 
 	@BeforeMethod
