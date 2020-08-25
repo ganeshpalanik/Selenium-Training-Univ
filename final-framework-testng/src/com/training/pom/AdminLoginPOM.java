@@ -47,6 +47,6 @@ public class AdminLoginPOM {
 	
 	public String Read()
 	{
-		return Dash.getText();
+		 return Dash.getText();
 	}
 }

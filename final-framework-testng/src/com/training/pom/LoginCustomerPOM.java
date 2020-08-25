@@ -10,7 +10,7 @@ public class LoginCustomerPOM {
 	
 private WebDriver driver; 
 	
-	private Actions action;
+	private Actions action; 
 	
 	public LoginCustomerPOM(WebDriver driver) {
 		this.driver = driver; 

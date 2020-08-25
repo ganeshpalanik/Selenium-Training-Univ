@@ -17,7 +17,7 @@ public class CategoriesPOM {
 		this.driver = driver; 
 		PageFactory.initElements(driver, this); 
 	}
-	
+	 
 	
 	@FindBy(linkText="Category Name")
 	private WebElement categoryName;
