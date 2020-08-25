@@ -55,7 +55,7 @@ public class ELearningDAO {
 	}
 	
 	public static void main(String[] args) {
-		new ELearningDAO().getLogins().forEach(System.out :: println);
+		//new ELearningDAO().getLogins().forEach(System.out :: println);
 	}
 	
 	

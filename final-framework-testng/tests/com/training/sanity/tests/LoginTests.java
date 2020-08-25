@@ -12,6 +12,8 @@ import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
 import com.training.pom.LoginPOM;
+import com.training.pom.LoginCustomerPOM;
+import com.training.pom.AdminLoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
@@ -20,6 +22,8 @@ public class LoginTests {
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM loginPOM;
+	private LoginCustomerPOM LoginCustomerPOM;
+	private AdminLoginPOM AdminLoginPOM;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -32,11 +36,19 @@ public class LoginTests {
 
 	@BeforeMethod
 	public void setUp() throws Exception {
+		
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
+		
 		loginPOM = new LoginPOM(driver); 
+		
+		LoginCustomerPOM = new LoginCustomerPOM(driver); 
+		
+		AdminLoginPOM = new AdminLoginPOM(driver);		
+		
 		baseUrl = properties.getProperty("baseURL");
+		
 		screenShot = new ScreenShot(driver); 
-		// open the browser 
+		
 		driver.get(baseUrl);
 	}
 	
@@ -45,11 +57,22 @@ public class LoginTests {
 		Thread.sleep(1000);
 		driver.quit();
 	}
-	@Test
-	public void validLoginTest() {
-		loginPOM.sendUserName("admin");
-		loginPOM.sendPassword("admin@123");
-		loginPOM.clickLoginBtn(); 
-		screenShot.captureScreenShot("First");
+	
+	@Test(enabled=true,priority=0)
+	public void validLoginTest() throws Exception {
+		
+		loginPOM.mouseoveracct();
+		
+		loginPOM.LoginClick();		
+			
+		Thread.sleep(2000);
+		
+		LoginCustomerPOM.SendEmail("ganesh.palani.k@gmail.com");
+		
+		LoginCustomerPOM.SendPassword("ganesh123");
+		
+		LoginCustomerPOM.clickLogin();
 	}
+	
+	
 }
