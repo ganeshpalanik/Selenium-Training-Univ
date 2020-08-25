@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class CategoriesPOM {
 	
 	
-	private WebDriver driver; 
+	private WebDriver driver;  
 	
 	private Actions action;
 	

@@ -18,7 +18,7 @@ public class DashboardPOM {
 	
 	int i=1;
 	
-	String items= " ";
+	String items= " "; 
 	
 	public DashboardPOM(WebDriver driver) {
 		this.driver = driver; 

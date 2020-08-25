@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class AdminLoginPOM {
 	
-	private WebDriver driver; 
+	private WebDriver driver;  
 	
 	
 	public AdminLoginPOM(WebDriver driver) {
