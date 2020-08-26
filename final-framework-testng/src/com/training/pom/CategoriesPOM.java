@@ -28,6 +28,12 @@ public class CategoriesPOM {
 	@FindBy(xpath="//td[contains(text(),'Action')]")
 	private WebElement Action;
 	
+	@FindBy(xpath="//*[td[4]/a/i]")
+	private WebElement Editclick;
+	
+	@FindBy(xpath="//*[@id='form-category']//div//table//tbody//tr[1]//td[4]//a//i")
+	private WebElement Editclick1;
+	
 	//xpath=//td[contains(.,'Action')
 	public String cname()
 	{
@@ -44,4 +50,11 @@ public class CategoriesPOM {
 		return Action.getText();
 	}
 	
+	
+	
+	public void Edit_Click()
+	{
+		Editclick1.click();
+			
+	}
 }

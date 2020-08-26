@@ -20,10 +20,11 @@ import com.training.pom.LoginCustomerPOM;
 import com.training.pom.LoginPOM;
 import com.training.pom.DashboardPOM;
 import com.training.pom.CategoriesPOM;
+import com.training.pom.EditCategoryPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class TestCase_2 {
+public class Medium_TestCase {
 
 	private static WebDriver driver;
 	private static String AdminURL;
@@ -32,6 +33,7 @@ public class TestCase_2 {
 	private CategoriesPOM CategoriesPOM;
 	private static Properties properties;
 	private static ScreenShot screenShot;
+	private static EditCategoryPOM EditCategoryPOM;
 	
 	private String Dash;
 	
@@ -77,6 +79,7 @@ public class TestCase_2 {
 	
 	@AfterMethod
 	public void tearDown() throws Exception {
+		
 		Thread.sleep(1000);
 	   //	driver.quit();
 	}
@@ -104,15 +107,13 @@ public class TestCase_2 {
 		
 		System.out.println(Dash);
 		
-		Assert.assertEquals("Dashboard", Dash);
-		
-	
-		
-		
+		Assert.assertEquals("Dashboard", Dash);	
+			
 	}
 	
 	@Test (priority=2)
-	public void TestCase_3() throws Exception
+	
+	public void MediumTestCase_1() throws Exception
 	{
 		// *** 3rd Test Case
 		 
@@ -120,15 +121,17 @@ public class TestCase_2 {
 		
 		DashboardPOM.mouseovercatagory();
 		
-		Thread.sleep(2000);
+		Thread.sleep(2000);			
 		
+		DashboardPOM.mouseovercatagory();
 		
-		DashboardPOM.display();		
-			
-		DashboardPOM.category();
+		DashboardPOM.display();
 		
+		System.out.println(" \n *** --- MEDIUM TEST CASE 1 STEP 1 PASSED --- *** \n " );
 		
-		CategoriesPOM = new CategoriesPOM(driver);
+		DashboardPOM.category();		
+		
+		CategoriesPOM = new CategoriesPOM(driver); 
 		
 		Assert.assertEquals("Category Name", CategoriesPOM.cname());
 		
@@ -142,7 +145,15 @@ public class TestCase_2 {
 		
 		System.out.println(CategoriesPOM.Action());
 		
-		System.out.println("ALL TEST PASSED");
+		System.out.println(" \n *** --- MEDIUM TEST CASE 1 STEP 2 PASSED --- *** \n " );
+		
+		CategoriesPOM.Edit_Click();		
+				
+		EditCategoryPOM = new EditCategoryPOM(driver);
+		
+		System.out.println("CATEGORY NAME IS ===>  "+ EditCategoryPOM.Description());
+		
+		System.out.println(" \n *** --- MEDIUM TEST CASE 1 STEP 3 PASSED --- *** \n " );
 	}
 	
 	
