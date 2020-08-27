@@ -21,6 +21,7 @@ import com.training.pom.LoginPOM;
 import com.training.pom.DashboardPOM;
 import com.training.pom.CategoriesPOM;
 import com.training.pom.EditCategoryPOM;
+import com.training.pom.ProductDetailPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
@@ -34,8 +35,15 @@ public class Medium_TestCase {
 	private static Properties properties;
 	private static ScreenShot screenShot;
 	private static EditCategoryPOM EditCategoryPOM;
+	private static ProductDetailPOM ProductDetailPOM;
 	
 	private String Dash;
+	private String Alerttextcontent;
+	private String Product_Tab=" ";
+	private String Product_Name=" ";
+	private String Product_Filter_Name=" ";
+	private String Product_Price=" ";
+	private String Product_Filter_Price=" ";
 	
 	int i=0;
 
@@ -154,6 +162,85 @@ public class Medium_TestCase {
 		System.out.println("CATEGORY NAME IS ===>  "+ EditCategoryPOM.Description());
 		
 		System.out.println(" \n *** --- MEDIUM TEST CASE 1 STEP 3 PASSED --- *** \n " );
+		
+		EditCategoryPOM.category();
+		
+		Thread.sleep(2000);
+		
+		CategoriesPOM = new CategoriesPOM(driver); 
+		
+		CategoriesPOM.SelectCheckbox();		
+		
+		System.out.println(" \n *** --- MEDIUM TEST CASE 1 STEP 4&5 PASSED --- *** \n " );
+		
+		CategoriesPOM.DeleteSelectedCheckBox();
+		
+		Alerttextcontent = CategoriesPOM.AcceptOk();
+		
+		Assert.assertEquals(Alerttextcontent, "Are you sure?");
+		
+		System.out.println("ALERT MESSAGE CONTAINS THIS MESSAGE ===> "+ Alerttextcontent);
+		
+		System.out.println(" \n *** --- MEDIUM TEST CASE 1 STEP 6&7 PASSED --- *** \n " );
+		
+		
+		
+	}
+	
+	
+	@Test (priority=3)
+	
+	public void MediumTestCase_2() throws Exception
+	{
+		DashboardPOM = new DashboardPOM(driver);
+		
+		DashboardPOM.mouseovercatagory();
+		
+		DashboardPOM.display();
+		
+		System.out.println(" \n *** --- MEDIUM TEST CASE 2 STEP 1 PASSED --- *** \n " );
+		
+		DashboardPOM.Product();
+		
+		ProductDetailPOM = new ProductDetailPOM(driver);
+		
+		Product_Tab =ProductDetailPOM.ProductList_Title();
+		
+		Assert.assertEquals(Product_Tab, "Product List");
+		
+		System.out.println ("TITLE OF PRODUCT TAB IS ==> " + Product_Tab );
+		
+		System.out.println(" \n *** --- MEDIUM TEST CASE 2 STEP 2 PASSED --- *** \n " );
+		
+		Product_Name = "Integer vitae iaculis massa";
+		
+		ProductDetailPOM.ProductName(Product_Name);
+		
+		ProductDetailPOM.ClickFilter();
+		
+		Product_Filter_Name = ProductDetailPOM.Product_Filter_Name();
+		
+		System.out.println("FILTERED PRODUCT NAME IS ==> "+ Product_Filter_Name);
+		
+		Assert.assertEquals(Product_Filter_Name, Product_Name);
+		
+		System.out.println(" \n *** --- MEDIUM TEST CASE 2 STEP 3 & 4 PASSED --- *** \n " );
+		
+		Product_Price ="515";
+		
+		ProductDetailPOM.ProductPrice(Product_Price);
+		
+		ProductDetailPOM.ClickFilter();
+		
+		Product_Filter_Price = ProductDetailPOM.Product_Filter_Price();
+		
+		System.out.println("FILTERED PRODUCT PRICE IS ==> "+ Product_Filter_Price);
+		
+		Assert.assertEquals(Product_Filter_Price, "515.0000");
+		
+		System.out.println(" \n *** --- MEDIUM TEST CASE 2 STEP 5 & 6 PASSED --- *** \n " );
+		
+		
 	}
 	
 	

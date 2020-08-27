@@ -37,6 +37,9 @@ public class DashboardPOM {
 	@FindBy(xpath = "//*[@id='menu-catalog']/ul/li[1]")
 	private WebElement category;
 	
+	@FindBy(linkText="Products")
+	private WebElement Products;
+	
 	
 	public void mouseovercatagory() {
 		
@@ -61,4 +64,11 @@ public class DashboardPOM {
 	{
 		category.click();
 	}
+	
+	
+	public void Product()
+	{
+		Products.click();
+	}
+	
 }

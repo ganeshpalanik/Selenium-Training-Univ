@@ -19,10 +19,19 @@ public class EditCategoryPOM {
 		
 	@FindBy(xpath="//*[@id='input-name1']")
 	private WebElement categoryName_Text;
+	
+	@FindBy(linkText="Categories")
+	private WebElement Category;
+	
 		
 	public String Description() 
 	{
 		return categoryName_Text.getAttribute("Value");
+	}
+	
+	public void category() 
+	{
+		Category.click();
 	}
 	
 }
